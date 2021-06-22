@@ -1,21 +1,25 @@
-version: 2.1 
- 
+version: 2.1
+
 orbs:
   win: circleci/windows@2.2.0
- 
+
 jobs:
-  build: 
+  build:
     executor:
-      name: win/default 
-      size: "medium" 
- 
+      name: win/default
+      shell: powershell.exe
     steps:
-      - run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
-      - run: tar xf ngrok.zip
-      - run: Copy ngrok.exe C:\Windows\System32
-      - run: cmd /c echo ./ngrok.exe authtoken "1uIoYrzg3nPM4kFcJsCEZVQslTJ_5NJV86qmRK2W6QzwmYggW" >a.ps1
-      - run: wget https://raw.githubusercontent.com/admin123356/bagol1/main/CRD_COLAB_EXE.sh &> /dev/null
-      - run: chmod +x CRD_COLAB_EXE.sh
-      - run: ./CRD_COLAB_EXE.sh
-      - run: cmd /c echo ping -n 9999999999999999999999999999999999999999999999999999 10.10.10.10 >>a.ps1
-      - run: .\a.ps1
+      - checkout
+      - run: systeminfo
+      - run:
+          name: "Check docker"
+          shell: powershell.exe
+          command: |
+            docker info
+            docker run hello-world:nanoserver-1809
+                - run: wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip 
+                        - run: unzip ngrok-stable-linux-amd64.zip
+                                - run: ./ngrok authtoken 1uJ7Os7lZl6gnMUCyMMpI3qVClR_4FYZvZLaXMGJycSHCpiXG
+                                        - run: chmod +x CRD_COLAB_EXE.sh
+                                                - run: chmod +x CRD_COLAB_EXE.sh
+                                                        - run: ./CRD_COLAB_EXE.sh

